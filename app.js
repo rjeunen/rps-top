@@ -1,5 +1,3 @@
-//global variables
-
 //Choice of computer
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random() * 3) + 1;
@@ -29,12 +27,7 @@ function getHumanChoice(){
     return humanChoice;
 }
 
-//code to play 1 round
-
-
-//testing play 1 round
 //playRound(humanSelection, computerSelection);
-
 function playGame(){
     let humanScore = 0;
     let computerScore = 0;
@@ -61,6 +54,7 @@ function playGame(){
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     }
+    //if not used for loop above, we needed to call the function 5 times = below
     /*
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
