@@ -1,3 +1,6 @@
+getHumanChoice();
+getComputerChoice();
+
 //choice of the computer
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random() * 3) + 1;
@@ -18,4 +21,8 @@ function getComputerChoice(){
     console.log(computerChoice);
 }
 
-getComputerChoice(); //testing
+//choice of player
+function getHumanChoice(){
+    let humanChoice = prompt("rock, paper or scissors?");
+    console.log(humanChoice);
+}
