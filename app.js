@@ -1,3 +1,22 @@
+const buttonRock = document.querySelector("#buttonRock");
+const buttonPaper = document.querySelector("#buttonPaper");
+const buttonScissors = document.querySelector("#buttonScissors");
+const results = document.querySelector("#results");
+const runningScore = document.querySelector("#runningScore");
+
+buttonRock.addEventListener("click", () => {
+    playRound("rock", getComputerChoice());
+});
+buttonPaper.addEventListener("click", () => {
+    playRound("paper", getComputerChoice());
+});
+buttonScissors.addEventListener("click", () => {
+    playRound("scissors", getComputerChoice());
+});
+
+let humanScore = 0;
+let computerScore = 0;
+
 //Choice of computer
 function getComputerChoice(){
     let computerChoice = Math.floor(Math.random() * 3) + 1;
@@ -19,14 +38,45 @@ function getComputerChoice(){
     return computerChoice;
 }
 
-//choice of player
-function getHumanChoice(){
-    let humanChoice = prompt("rock, paper or scissors?");
-    humanChoice = humanChoice.toLocaleLowerCase();
-    console.log(humanChoice);
-    return humanChoice;
+function checkScore(){
+    if(humanScore === 5){
+        runningScore.textContent = `WINNER, player won ${humanScore} VS ${computerScore}`;
+    }
+    else if(computerScore === 5){
+        runningScore.textContent = `You LOST, computer won ${computerScore} VS ${humanScore}`;
+    }
 }
 
+function playRound(humanChoice, computerChoice){
+    if(humanChoice === computerChoice){
+        results.textContent = `It's a draw: ${humanChoice} vs ${computerChoice}`;
+            console.log(`It's a draw: ${humanChoice} vs ${computerChoice}`);
+            runningScore.textContent = `SCORE: Player ${humanScore} VS Computer ${computerScore}`;
+            checkScore();
+    }
+    else if(humanChoice === "rock" && computerChoice === "paper" ||
+        humanChoice === "paper" && computerChoice === "scissors" ||
+        humanChoice === "scissors" && computerChoice === "rock"){
+            results.textContent = `You lost ${humanChoice} loses vs ${computerChoice}`;
+        console.log(`You lost ${humanChoice} loses vs ${computerChoice}`);
+        computerScore++;
+        runningScore.textContent = `SCORE: Player ${humanScore} VS Computer ${computerScore}`;
+        checkScore();
+    }
+    else {
+        results.textContent = `You won ${humanChoice} beats ${computerChoice}`;
+        console.log(`You won ${humanChoice} beats ${computerChoice}`);
+        humanScore++;
+        runningScore.textContent = `SCORE: Player ${humanScore} VS Computer ${computerScore}`;
+        checkScore();
+    }
+    console.log(`Score: Human: ${humanScore} VS Computer: ${computerScore}`);
+}
+
+
+
+
+/** 
 //playRound(humanSelection, computerSelection);
 function playGame(){
     let humanScore = 0;
@@ -54,28 +104,7 @@ function playGame(){
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     }
-    //if not used for loop above, we needed to call the function 5 times = below
-    /*
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-
-    getHumanChoice();
-    getComputerChoice();
-    playRound(humanSelection, computerSelection);
-
-    getHumanChoice();
-    getComputerChoice();
-    playRound(humanSelection, computerSelection);
-
-    getHumanChoice();
-    getComputerChoice();
-    playRound(humanSelection, computerSelection);
-
-    getHumanChoice();
-    getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    */
 }
 
 playGame();
+*/
