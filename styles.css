@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    text-align: center;
+    background-color: beige;
+}
+
+#content{
+    margin: 0 auto;
+}
+
+.title{
+    margin-bottom: 50px;
+}
+
+.buttonsOptions{
+    margin: 36px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+#runningScore{
+    font-size: 48px;
+    margin-bottom: 36px;
+}
+
+button{
+    font-size: 36px;
+    width: 300px;
+}

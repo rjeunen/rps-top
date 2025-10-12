@@ -16,6 +16,7 @@ buttonScissors.addEventListener("click", () => {
 
 let humanScore = 0;
 let computerScore = 0;
+runningScore.textContent = `0 VS 0`;
 
 //Choice of computer
 function getComputerChoice(){
@@ -40,10 +41,10 @@ function getComputerChoice(){
 
 function checkScore(){
     if(humanScore === 5){
-        runningScore.textContent = `WINNER, player won ${humanScore} VS ${computerScore}`;
+        runningScore.textContent = `GAME OVER: YOU WON ${humanScore} VS ${computerScore}`;
     }
     else if(computerScore === 5){
-        runningScore.textContent = `You LOST, computer won ${computerScore} VS ${humanScore}`;
+        runningScore.textContent = `GAME OVER: YOU LOST ${computerScore} VS ${humanScore}`;
     }
 }
 
@@ -51,7 +52,7 @@ function playRound(humanChoice, computerChoice){
     if(humanChoice === computerChoice){
         results.textContent = `It's a draw: ${humanChoice} vs ${computerChoice}`;
             console.log(`It's a draw: ${humanChoice} vs ${computerChoice}`);
-            runningScore.textContent = `SCORE: Player ${humanScore} VS Computer ${computerScore}`;
+            runningScore.textContent = `${humanScore} VS ${computerScore}`;
             checkScore();
     }
     else if(humanChoice === "rock" && computerChoice === "paper" ||
@@ -60,14 +61,14 @@ function playRound(humanChoice, computerChoice){
             results.textContent = `You lost ${humanChoice} loses vs ${computerChoice}`;
         console.log(`You lost ${humanChoice} loses vs ${computerChoice}`);
         computerScore++;
-        runningScore.textContent = `SCORE: Player ${humanScore} VS Computer ${computerScore}`;
+        runningScore.textContent = `${humanScore} VS ${computerScore}`;
         checkScore();
     }
     else {
         results.textContent = `You won ${humanChoice} beats ${computerChoice}`;
         console.log(`You won ${humanChoice} beats ${computerChoice}`);
         humanScore++;
-        runningScore.textContent = `SCORE: Player ${humanScore} VS Computer ${computerScore}`;
+        runningScore.textContent = `${humanScore} VS ${computerScore}`;
         checkScore();
     }
     console.log(`Score: Human: ${humanScore} VS Computer: ${computerScore}`);
